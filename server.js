@@ -14,7 +14,7 @@ var tcp_server = net.createServer(function(conn) {
 	
 	conn.on('data',function(data) { 
 		console.log('Driver log: '+ data + ' from ' + conn.remoteAddress + ' ' + conn.remotePort) ; 
-
+	data += "Log From Address: " + conn.remoteAddress + " Port : " + conn.remotePort + "\n" ; 
 	client.rpush('Logs',data);
 	});
 }).listen(9623);
